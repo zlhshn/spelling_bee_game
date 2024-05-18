@@ -1,5 +1,6 @@
 {
-    "Index": {
-      "title": "Merhaba!"
-    }
+  "HomePage": {
+    "How many words can you make with 7 letters?": "7 harf ile kaç kelime oluşturabilirsin?",
+    "Play": "Başla"
   }
+}

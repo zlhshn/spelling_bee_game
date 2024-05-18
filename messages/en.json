@@ -1,5 +1,6 @@
 {
-    "Index": {
-      "title": "Hello world!"
-    }
+  "HomePage": {
+    "How many words can you make with 7 letters?": "How many words can you make with 7 letters?",
+    "Play": "Play"
   }
+}
