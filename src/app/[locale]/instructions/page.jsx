@@ -2,15 +2,13 @@ import React from "react";
 import { useTranslations } from "next-intl";
 import PlayButton from "@/components/PlayButton";
 const page = ({ params }) => {
-
   const t = useTranslations("HomePage");
   const locale = params?.locale || "en";
   return (
-    <div className="bg-yellow-main h-screen py-10 m-auto">
-      <div className="m-auto  rounded shadow-lg w-[400px] bg-white mb-10">
-        <div className=" flex justify-between items-center px-5 py-3 bg-slate-200 rounded-t-lg">
-        </div>
-        <div className="px-5 py-4 flex flex-col gap-2">
+    <div className="bg-yellow-main h-screen py-10 m-auto ">
+      <div className="m-auto  rounded shadow-lg w-[90%] sm:w-[400px] bg-white mb-10">
+        <div className=" flex justify-between items-center text-[13px] md:text-[16px] px-5 py-3 bg-slate-200 rounded-t-lg"></div>
+        <div className="px-5 py-4 flex flex-col">
           <p> {t("instruction")}</p>
           <li> {t("rule1")}</li>
           <li> {t("rule2")}</li>
