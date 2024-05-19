@@ -1,7 +1,7 @@
 import React from "react";
 import { useTranslations } from "next-intl";
 import PlayButton from "@/components/PlayButton";
-const page = ({ params }) => {
+const Page = ({ params }) => {
   const t = useTranslations("HomePage");
   const locale = params?.locale || "en";
   return (
