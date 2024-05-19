@@ -5,8 +5,8 @@ const Page = ({ params }) => {
   const t = useTranslations("HomePage");
   const locale = params?.locale || "en";
   return (
-    <div className="bg-yellow-main h-screen py-10 m-auto ">
-      <div className="m-auto  rounded shadow-lg w-[90%] sm:w-[400px] bg-white mb-10">
+    <div className="bg-yellow-main h-screen py-8 m-auto ">
+      <div className="m-auto  rounded-lg shadow-lg w-[92%] sm:w-[400px] bg-white">
         <div className=" flex justify-between items-center text-[13px] md:text-[16px] px-5 py-3 bg-slate-200 rounded-t-lg"></div>
         <div className="px-5 py-4 flex flex-col">
           <p> {t("instruction")}</p>
@@ -20,9 +20,11 @@ const Page = ({ params }) => {
           <h3 className="font-semibold"> {t("timing")}</h3>
           <li> {t("time1")}</li>
           <li> {t("time2")}</li>
+          <h3 className="font-semibold"> {t("start")}</h3>
+          <li> {t("start1")}</li>
         </div>
       </div>
-      <div className="text-center">
+      <div className="text-center mt-4 mb-4">
         <PlayButton locale={locale} label={t("Play")} />
       </div>
     </div>

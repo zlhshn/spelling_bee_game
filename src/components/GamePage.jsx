@@ -5,7 +5,7 @@ import Hexagon from "../components/Hexagon";
 import { Input } from "@headlessui/react";
 import React, { useState, useEffect, useRef } from "react";
 
-const GamePage = ({ words, generateNewWord }) => {
+const GamePage = ({ words, generateNewWord, language }) => {
   const { selectedLetter, setSelectedLetter } = useWordContext();
   const [inputValue, setInputValue] = useState("");
   const inputRef = useRef(null);
@@ -44,7 +44,12 @@ const GamePage = ({ words, generateNewWord }) => {
     } else if (wordList.includes(inputValue)) {
     } else if (words.answers.includes(inputValue)) {
       setWordList((prevWordList) => [...prevWordList, inputValue]);
-      setScore((prevScore) => prevScore + inputValue.length);
+      
+ 
+      const isPangram = words.validLetters.every(letter => inputValue.includes(letter));
+      const wordScore = isPangram ? inputValue.length + 7 : inputValue.length;
+
+      setScore((prevScore) => prevScore + wordScore);
       setTimer((prevTimer) => Math.min(prevTimer + 15, 60));
 
       setInputValue("");
@@ -85,9 +90,10 @@ const GamePage = ({ words, generateNewWord }) => {
 
   const handleGameOver = () => {
     const finalScore = score;
+    const highScoreKey = `highScore_${language}`;
     if (finalScore > highScore) {
       setHighScore(finalScore);
-      localStorage.setItem("highScore", finalScore);
+      localStorage.setItem(highScoreKey, finalScore);
     }
   };
 
@@ -104,16 +110,18 @@ const GamePage = ({ words, generateNewWord }) => {
   }, [inputValue]);
 
   useEffect(() => {
-    const storedHighScore = localStorage.getItem("highScore") || 0;
+    const highScoreKey = `highScore_${language}`;
+    const storedHighScore = localStorage.getItem(highScoreKey) || 0;
     setHighScore(parseInt(storedHighScore));
-  }, []);
+  }, [language]);
 
   useEffect(() => {
     if (!isGameStarted && score > highScore) {
       setHighScore(score);
-      localStorage.setItem("highScore", score);
+      const highScoreKey = `highScore_${language}`;
+      localStorage.setItem(highScoreKey, score);
     }
-  }, [isGameStarted, score, highScore]);
+  }, [isGameStarted, score, highScore, language]);
 
   useEffect(() => {
     if (isGameStarted && inputRef.current) {
@@ -151,16 +159,16 @@ const GamePage = ({ words, generateNewWord }) => {
             {!isGameStarted && (
               <>
                 <button
-                  className="w-[95px] text-lg font-bold border border-gray-300 px-4 py-1.5 rounded-3xl"
+                  className="w-[125px] text-lg font-bold border border-gray-300 px-2 py-1.5 rounded-3xl"
                   onClick={startGame}
                 >
                   Start
                 </button>
                 <button
-                  className="w-[95px] text-lg font-bold border border-gray-300 px-4 py-1.5 rounded-3xl"
+                  className="w-[125px] text-lg font-bold border border-gray-300 px-2 py-1.5 rounded-3xl"
                   onClick={generateNewWord}
                 >
-                  New Season
+                  New Letters
                 </button>
               </>
             )}
