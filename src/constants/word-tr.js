@@ -1,10 +1,9 @@
-
 export const words = [
   {
-    centerLetter: "t",
+    centerLetter: "a",
     outerLetters: ["t", "u", "k", "m", "n", "o"],
-    validLetters: ["a", "t", "u", "k", "m", "n", "o"],
-    pangrams: ["aktutma"],
+    validLetters: ["t", "u", "k", "a", "m", "n", "o"],
+    pangrams: ["komutan","okutman"],
     answers: [
       "aktutma",
       "akut",
@@ -18,6 +17,7 @@ export const words = [
       "komuta",
       "komutan",
       "konut",
+      "kota",
       "kuantum",
       "kunt",
       "kutan",
@@ -65,5 +65,26 @@ export const words = [
       "utmak",
     ],
     id: "1",
+  },
+  {
+    centerLetter: "a",
+    outerLetters: ["v", "t", "l", "i", "y", "e"],
+    validLetters: ["v", "t", "l", "a", "i", "y", "e"],
+    pangrams: ["vilayet"],
+    answers: [
+      "aile",
+      "avla",
+      "vali",
+      "veya",
+      "ayet",
+      "alay",
+      "veli",
+      "tava",
+      "yayla",
+      "ayva",
+      "talay",
+      "yatay",
+    ],
+    id: "2",
   },
 ];

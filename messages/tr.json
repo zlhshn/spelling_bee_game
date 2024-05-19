@@ -9,8 +9,11 @@
     "rule2": "Kelimeler merkez harfi içermelidir.",
     "rule3": "Harfler birden fazla kez kullanılabilir.",
     "rule4": "Kısa çizgi içeren kelimeler, özel isimler, küfürler ve özellikle çok nadir kelimeler kelime listesinde yoktur.",
-    "scoring": "Puan kazanarak derecenizi artırın.",
-    "point1": "4 harfli kelimeler her biri 1 puan değerindedir.",
-    "point2": "Her bulmaca, her harfi kullanan en az bir \"pangram\" içerir. Bunlar 7 ekstra puan değerindedir!"
+    "scoring": "Puan kazanarak skorunuzu artırın.",
+    "point1": "Her harf  1 puan değerindedir.",
+    "point2": "Her bulmaca, her harfi kullanan en az bir \"pangram\" içerir. Bunlar 7 ekstra puan değerindedir!",
+    "timing": "Zaman.",
+    "time1": "Süre 1 dakikadır !",
+    "time2": "Her bilinen doğru kelime için 15 saniye eklenir."
   }
 }

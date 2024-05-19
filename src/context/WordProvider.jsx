@@ -9,6 +9,7 @@ export const useWordContext = () => {
 
 const WordProvider = ({ children }) => {
   const [selectedLetter, setSelectedLetter] = useState("");
+  
 
   const handleLetterClick = (letter) => {
     setSelectedLetter((prev) => prev + letter);

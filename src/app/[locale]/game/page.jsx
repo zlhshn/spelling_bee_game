@@ -8,7 +8,7 @@ import { words as wordsEN } from "../../../constants/word-en";
 
 const Page = () => {
   const [randomData, setRandomData] = useState(null);
-  const locale = useLocale(); 
+  const locale = useLocale();
 
   useEffect(() => {
     const words = locale === "tr" ? wordsTR : wordsEN;
@@ -16,11 +16,19 @@ const Page = () => {
     setRandomData(words[randomIndex]);
   }, [locale]);
 
+  const generateNewWord = () => {
+    const words = locale === "tr" ? wordsTR : wordsEN;
+    const randomIndex = Math.floor(Math.random() * words.length);
+    const newRandomData = words[randomIndex];
+    setRandomData(newRandomData);
+  };
+
+
   if (!randomData) return null;
 
   return (
     <div>
-      <GamePage words={randomData} />
+      <GamePage words={randomData} generateNewWord={generateNewWord} />
     </div>
   );
 };

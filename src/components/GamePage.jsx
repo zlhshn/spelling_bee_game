@@ -5,8 +5,8 @@ import Hexagon from "../components/Hexagon";
 import { Input } from "@headlessui/react";
 import React, { useState, useEffect, useRef } from "react";
 
-const GamePage = ({ words }) => {
-  const { selectedLetter, setSelectedLetter, handleLetterClick } = useWordContext();
+const GamePage = ({ words, generateNewWord }) => {
+  const { selectedLetter, setSelectedLetter } = useWordContext();
   const [inputValue, setInputValue] = useState("");
   const inputRef = useRef(null);
   const [wordList, setWordList] = useState([]);
@@ -40,20 +40,16 @@ const GamePage = ({ words }) => {
     if (!isGameStarted) return;
 
     if (inputValue.length < 4) {
-      alert("Çok kısa! En az 4 harfli bir kelime giriniz.");
     } else if (!isWordValid(inputValue)) {
-      alert("Kelime geçersiz harfler içeriyor!");
     } else if (wordList.includes(inputValue)) {
-      alert("Bu kelime zaten listede var!");
     } else if (words.answers.includes(inputValue)) {
       setWordList((prevWordList) => [...prevWordList, inputValue]);
       setScore((prevScore) => prevScore + inputValue.length);
       setTimer((prevTimer) => Math.min(prevTimer + 15, 60));
-      alert("Tebrikler!");
+
       setInputValue("");
       setSelectedLetter("");
     } else {
-      alert("Kelime listede yok!");
     }
   };
 
@@ -93,7 +89,6 @@ const GamePage = ({ words }) => {
       setHighScore(finalScore);
       localStorage.setItem("highScore", finalScore);
     }
-    alert(`Time over, your score is ${finalScore}`);
   };
 
   useEffect(() => {
@@ -120,26 +115,39 @@ const GamePage = ({ words }) => {
     }
   }, [isGameStarted, score, highScore]);
 
+  useEffect(() => {
+    if (isGameStarted && inputRef.current) {
+      inputRef.current.focus();
+    }
+  }, [isGameStarted]);
+
   return (
     <main className="max-w-[1200px] m-auto flex gap-8 items-center justify-center h-[80vh]">
       <div className="flex flex-col w-[50%] h-[100%] justify-center items-center">
         <Input
           ref={inputRef}
-          className="w-[280px] me-2 text-center font-bold text-2xl my-10 caret-yellow-500 outline-none border-none"
+          className={`w-[280px] me-2 text-center font-bold text-2xl my-10 caret-yellow-500 outline-none border-none ${!isGameStarted ? 'bg-white' : 'bg-white caret-amber-400'}`}
           value={inputValue}
           onChange={handleInputChange}
           onKeyDown={handleEnterPress}
-          disabled={!isGameStarted}
         />
         <Hexagon words={words} />
         <div className="flex gap-6 p-7">
           {!isGameStarted && (
-            <button
-              className="w-[95px] text-lg font-bold border border-gray-300 px-4 py-1.5 rounded-3xl"
-              onClick={startGame}
-            >
-              Start
-            </button>
+            <>
+              <button
+                className="w-[95px] text-lg font-bold border border-gray-300 px-4 py-1.5 rounded-3xl"
+                onClick={startGame}
+              >
+                Start
+              </button>
+              <button
+                className="w-[95px] text-lg font-bold border border-gray-300 px-4 py-1.5 rounded-3xl"
+                onClick={generateNewWord}
+              >
+                New Season
+              </button>
+            </>
           )}
           {isGameStarted && (
             <>

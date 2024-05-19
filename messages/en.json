@@ -8,8 +8,11 @@
     "rule2": "Words must include the center letter.",
     "rule3": "Letters can be used more than once.",
     "rule4": "Words with hyphens, proper nouns, vulgarities, and especially obscure words are not in the word list.",
-    "scoring": "Score points to increase your rating.",
-    "point1": "4-letter words are worth 1 point each.",
-    "point2": "Each puzzle includes at least one “pangram” which uses every letter. These are worth 7 extra points!"
+    "scoring": "Score points to increase your top-score.",
+    "point1": "Each letter is worth 1 point.",
+    "point2": "Each puzzle includes at least one “pangram” which uses every letter. These are worth 7 extra points!",
+    "timing": "Time.",
+    "time1": "Duration is 1 minute !",
+    "time2": "+15 seconds is added for each known correct word."
   }
 }
