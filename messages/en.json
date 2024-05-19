@@ -1,6 +1,15 @@
 {
   "HomePage": {
     "How many words can you make with 7 letters?": "How many words can you make with 7 letters?",
-    "Play": "Play"
+    "Play": "Play",
+    "How To Play": "How To Play ?",
+    "instruction": "Create words using letters from the hive and try to get the maximum score.",
+    "rule1": "Words must have at least four letters.",
+    "rule2": "Words must include the center letter.",
+    "rule3": "Letters can be used more than once.",
+    "rule4": "Words with hyphens, proper nouns, vulgarities, and especially obscure words are not in the word list.",
+    "scoring": "Score points to increase your rating.",
+    "point1": "4-letter words are worth 1 point each.",
+    "point2": "Each puzzle includes at least one “pangram” which uses every letter. These are worth 7 extra points!"
   }
 }

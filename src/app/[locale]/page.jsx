@@ -1,6 +1,7 @@
 import { useTranslations } from "next-intl";
 import BeeIcon from "../../../public/BeeIcon";
 import PlayButton from "../../components/PlayButton"; 
+import InstructorButton from "@/components/InstructorButton";
 
 export default function Home({ params }) {
   const t = useTranslations('HomePage');
@@ -13,6 +14,7 @@ export default function Home({ params }) {
         {t('How many words can you make with 7 letters?')}
       </p>
       <PlayButton locale={locale} label={t('Play')} />
+      <InstructorButton locale={locale} label={t('How To Play')}/>
     </main>
   );
 }

@@ -1,9 +1,8 @@
 "use client";
 
 import React, { useState } from "react";
-import { RxQuestionMarkCircled } from "react-icons/rx";
 import SwitchLanguage from "./SwitchLanguage";
-import Modal from "../components/Modal"; 
+
 
 const Navbar = () => {
   const [open, setOpen] = useState(false); 
@@ -14,15 +13,10 @@ const Navbar = () => {
         <p>Spelling Bee</p>
       </div>
       <div className="flex items-center justify-between gap-6 cursor-pointer">
-        <RxQuestionMarkCircled
-          className="text-xl"
-          onClick={() => {
-            setOpen(true);
-          }}
-        />
+
         <SwitchLanguage />
       </div>
-      <Modal open={open} setOpen={setOpen} /> 
+
     </div>
   );
 };

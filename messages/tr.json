@@ -1,6 +1,16 @@
 {
   "HomePage": {
     "How many words can you make with 7 letters?": "7 harf ile kaç kelime oluşturabilirsin?",
-    "Play": "Başla"
+    "Play": "Başla",
+    "How To Play": "Nasıl Oynanır ?",
+    "howToPlay": "Nasıl oynanır",
+    "instruction": "Kovandaki harfleri kullanarak kelimeler oluşturun ve maksimum puanı elde etmeye çalışın.",
+    "rule1": "Kelimeler en az dört harfli olmalıdır.",
+    "rule2": "Kelimeler merkez harfi içermelidir.",
+    "rule3": "Harfler birden fazla kez kullanılabilir.",
+    "rule4": "Kısa çizgi içeren kelimeler, özel isimler, küfürler ve özellikle çok nadir kelimeler kelime listesinde yoktur.",
+    "scoring": "Puan kazanarak derecenizi artırın.",
+    "point1": "4 harfli kelimeler her biri 1 puan değerindedir.",
+    "point2": "Her bulmaca, her harfi kullanan en az bir \"pangram\" içerir. Bunlar 7 ekstra puan değerindedir!"
   }
 }
