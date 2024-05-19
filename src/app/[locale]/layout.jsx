@@ -2,7 +2,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "../../components/Navbar";
 import WordProvider from "../../context/WordProvider";
-import { ToastContainer } from "react-toastify";
+
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,7 +20,6 @@ export default function RootLayout({ children, ...props }) {
         <WordProvider>
           <Navbar />
           {children}
-          <ToastContainer />
         </WordProvider>
       </body>
     </html>
