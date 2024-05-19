@@ -1,5 +1,5 @@
 import { useTranslations } from "next-intl";
-import BeeIcon from "../../../public/BeeIcon";
+import BeeIcon from "../../constants/BeeIcon";
 import PlayButton from "../../components/PlayButton"; 
 import InstructorButton from "@/components/InstructorButton";
 
