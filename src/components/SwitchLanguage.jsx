@@ -1,5 +1,6 @@
+"use client";
 
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "../navigation";
 import { useLocale, useTranslations } from "next-intl";
 import { useTransition } from "react";
 
@@ -7,10 +8,13 @@ const SwitchLanguage = () => {
   const router = useRouter();
   const [isPending, startTransition] = useTransition();
   const localActive = useLocale();
+  const pathname = usePathname();
   const selectValue = (e) => {
     const nextLocale = e.target.value;
     startTransition(() => {
-      router.replace(`/${nextLocale}`);
+      router.replace(pathname, {
+        locale: nextLocale,
+      });
     });
   };
 

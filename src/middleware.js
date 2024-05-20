@@ -1,14 +1,12 @@
-import createMiddleware from 'next-intl/middleware';
- 
-export default createMiddleware({
+import createMiddleware from "next-intl/middleware";
+import { locales, localePrefix } from "./navigation";
 
-  locales: ['en', 'tr'],
- 
- 
-  defaultLocale: 'en'
+export default createMiddleware({
+  defaultLocale: "en",
+  localePrefix,
+  locales,
 });
- 
+
 export const config = {
- 
-  matcher: ['/', '/(tr|en)/:path*']
+  matcher: ["/", "/(tr|en)/:path*"],
 };

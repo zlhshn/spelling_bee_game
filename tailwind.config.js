@@ -7,17 +7,12 @@ module.exports = {
   ],
   theme: {
     extend: {
-      backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
-      },
       fontFamily: {
-        libreSans: ['Libre Franklin', 'sans-serif'],
-        sourceSerif: ['Source Serif 4', 'serif'],
+        libreSans: ["Libre Franklin", "sans-serif"],
+        sourceSerif: ["Source Serif 4", "serif"],
       },
       colors: {
-       "yellow-main":"#F7DA21",
+        "yellow-main": "#F7DA21",
       },
     },
   },

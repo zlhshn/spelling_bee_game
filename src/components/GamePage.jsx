@@ -1,11 +1,14 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import { useWordContext } from "../context/WordProvider";
 import Hexagon from "../components/Hexagon";
 import { Input } from "@headlessui/react";
 import React, { useState, useEffect, useRef } from "react";
+import { toastWarn, toastSuccess, toastError } from "../helpers/ToastNotify";
 
 const GamePage = ({ words, generateNewWord, language }) => {
+  const t = useTranslations("GamePage");
   const { selectedLetter, setSelectedLetter } = useWordContext();
   const [inputValue, setInputValue] = useState("");
   const inputRef = useRef(null);
@@ -40,21 +43,28 @@ const GamePage = ({ words, generateNewWord, language }) => {
     if (!isGameStarted) return;
 
     if (inputValue.length < 4) {
+      toastWarn(t("Too short"));
     } else if (!isWordValid(inputValue)) {
+      toastWarn(t("Invalid word"));
     } else if (wordList.includes(inputValue)) {
+      toastWarn(t("Word already found"));
     } else if (words.answers.includes(inputValue)) {
       setWordList((prevWordList) => [...prevWordList, inputValue]);
-      
- 
-      const isPangram = words.validLetters.every(letter => inputValue.includes(letter));
+
+      const isPangram = words.validLetters.every((letter) =>
+        inputValue.includes(letter)
+      );
       const wordScore = isPangram ? inputValue.length + 7 : inputValue.length;
 
       setScore((prevScore) => prevScore + wordScore);
       setTimer((prevTimer) => Math.min(prevTimer + 15, 60));
-
+      if (isPangram) {
+        toastSuccess("Pangram");
+      }
       setInputValue("");
       setSelectedLetter("");
     } else {
+      toastWarn(t("Word not in list"));
     }
   };
 
@@ -132,14 +142,14 @@ const GamePage = ({ words, generateNewWord, language }) => {
   return (
     <>
       <div>
-        <div className="flex justify-center gap-5 text-3xl text-center my-5">
-          <div className="w-[165px] text-lg font-bold border border-gray-300 px-4 py-1.5 rounded-md">
+        <div className="flex justify-center items-center gap-5 text-3xl text-center my-5">
+          <div className="w-[145px] text-lg font-bold border border-gray-300 px-4 py-1.5 rounded-md">
             {isGameStarted
               ? `00:${timer.toString().padStart(2, "0")}`
               : "01:00"}
           </div>
-          <div className="w-[165px] text-lg font-bold border border-gray-300 px-4 py-1.5 rounded-md">
-            Top Score: {highScore}
+          <div className="w-[215px] text-lg font-bold border border-gray-300 px-4 py-1.5 rounded-md">
+            {t("high score")}: {highScore}
           </div>
         </div>
       </div>
@@ -162,13 +172,13 @@ const GamePage = ({ words, generateNewWord, language }) => {
                   className="w-[125px] text-lg font-bold border border-gray-300 px-2 py-1.5 rounded-3xl"
                   onClick={startGame}
                 >
-                  Start
+                  {t("start")}
                 </button>
                 <button
                   className="w-[125px] text-lg font-bold border border-gray-300 px-2 py-1.5 rounded-3xl"
                   onClick={generateNewWord}
                 >
-                  New Letters
+                  {t("new Letters")}
                 </button>
               </>
             )}
@@ -178,13 +188,13 @@ const GamePage = ({ words, generateNewWord, language }) => {
                   className="w-[95px] text-lg font-bold border border-gray-300 px-4 py-1.5 rounded-3xl"
                   onClick={handleDelete}
                 >
-                  Delete
+                  {t("delete")}
                 </button>
                 <button
                   className="w-[95px] text-lg font-bold border border-gray-300 px-4 py-1.5 rounded-3xl"
                   onClick={checkWord}
                 >
-                  Enter
+                  {t("enter")}
                 </button>
               </>
             )}
@@ -193,8 +203,12 @@ const GamePage = ({ words, generateNewWord, language }) => {
         <div className="h-[80vh] w-[100%] p-5">
           <div className="border p-10 rounded-md h-[80%]">
             <div className="flex justify-between">
-              <h3 className="pb-4">You have found {wordList.length} words</h3>
-              <p>Point: {score}</p>
+              <h3 className="pb-4">
+                {t("Number of words found")} : {wordList.length}
+              </h3>
+              <p>
+                {t("point")} {score}
+              </p>
             </div>
 
             {wordList.map((word, index) => (

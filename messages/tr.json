@@ -16,6 +16,19 @@
     "time1": "Süre 1 dakikadır !",
     "time2": "Her bilinen doğru kelime için 15 saniye eklenir.",
     "start": "Oyuna Başlama",
-    "start1": "Başlamak için \"start\"butonuna basınız. Yeni kelime almak için \"new letters\" e basınız."
+    "start1": "Başlamak için \"başla\" butonuna basınız. Yeni kelime almak için \"yeni harfler\" e basınız."
+  },
+  "GamePage": {
+    "start": "Başla",
+    "new Letters": "Yeni Harfler",
+    "delete": "Sil",
+    "enter": "Giriş",
+    "point": "Puan:",
+    "high score": "En Yüksek Puan",
+    "Number of words found": "Bulunan kelime sayısı",
+    "Too short":"Çok Kısa",
+    "Invalid word": "Geçersiz kelime",
+    "Word already found": "Kelime zaten listede var",
+    "Word not in list":"Kelime listede yok!"
   }
 }

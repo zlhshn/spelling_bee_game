@@ -94,6 +94,9 @@ export const words = [
       "tavla",
       "yaya",
       "vilayet",
+      "villa",
+      "vaat",
+      
     ],
     id: "2",
   },
